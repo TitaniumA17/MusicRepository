@@ -1,0 +1,74 @@
+﻿@model IEnumerable<MusicRepository.Models.Music>
+@using MusicRepository.Models
+@{
+    ViewData["Title"] = "Lista de Musicas";
+}
+<h2>Lista de músicas</h2>
+@* Controles de filtrado: búsqueda libre y selector de género *@
+<div class="row mb-3">
+    <div class="col-md-6">
+        <input id="filterText" class="form-control" placeholder="Buscar por título, artista o álbum..." />
+    </div>
+    <div class="col-md-3">
+        <select id="filterGenre" class="form-select">
+            <option value="">Todos los géneros</option>
+            @foreach (var g in Enum.GetValues(typeof(Genero)))
+            {
+                <option value="@g">@g</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-3">
+        <button id="clearFilters" class="btn btn-success w-100">Limpiar filtros</button>
+    </div>
+</div>
+<p> @*Boton principal para añadir musicas*@
+    <a asp-action="Crear" class="btn btn-primary">Añadir Musica</a>
+</p>
+@*Tabla que muestra la coleccion de musicas*@
+<div class="table-card">
+<table id="musicTable" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Artista</th>
+            <th>Álbum</th>
+            <th>Fecha de lanzamiento</th>
+            <th>Género</th>
+            <th>Demo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @* Comprueba que no hay elementos nulos*@
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            @* Muestra propiedades de la cancion*@
+            @* Las clases en cada item son usadas para el filtro*@
+            <tr>
+                <td class="col-title">@item.titulo</td>
+                <td class="col-artist">@item.artista</td>
+                <td class="col-album">@item.album</td>
+                 @* Formato fecha para mostrar año-mes-dia*@
+                <td>@item.lanzamiento.ToString("yyyy-MM-dd")</td>
+                <td class="col-genre">@item.genero</td>
+                    @* Boton para reproducir Demo*@
+                <td> 
+                    <button type="button" class="btn btn-success btn-play"
+                    @* Comando para reproducir la musica guardada*@
+                        data-src="@Url.Content($"~/audio/demo-{item.id}.mp3")">
+                        Play
+                    </button>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
+</div>
+@*Scripts realizado por la IA en JS para la reproduccion de DEMOS y el filtro de las tablas*@
+@section Scripts {
+    <script src="~/js/preview.js"></script>
+    <script src="~/js/table-filter.js"></script>
+}

@@ -1,0 +1,167 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) { 
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+/*Fuente usada para el titulo*/
+@font-face {
+    font-family: 'Evantic';
+    src: url('/fonts/Evantic-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+.fuentetitulo {
+        font-family: Evantic, system-ui, -apple-system;
+        font-weight: 400;
+        font-size: 1.7rem;
+        color: white
+}
+/*Colores*/
+:root { 
+    --magenta: #EE05F2;
+    --purple-light: #8D27F2;
+    --purple-dark: #6C0CF2;
+    --lime: #C8F230;
+    --dark-bg: #0D0D0D;
+    --text-light: #EAEAEA;
+    --text-muted: #A0A0A0;
+    --gray: #808080
+}
+body {
+    margin-bottom: 60px;
+    background-color: var(--dark-bg);
+    background-image: linear-gradient( 135deg, var(--dark-bg) 0%, var(--gray) 110% );
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+/*Apariencia del boton*/
+.btn-primary {
+    background-color: var(--lime);
+    color: var(--dark-bg);
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(200, 242, 48, 0.4);
+}
+
+/* Apariencia al colocar el mouse encima del boton*/
+    .btn-primary:hover {
+        background-color: var(--magenta);
+        color: white;
+        box-shadow: 0 0 25px rgba(238, 5, 242, 0.6);
+        transform: translateY(-3px);
+    }
+    /* Apariencias del boton "AÑADIR"*/
+    .btn-success {
+        background-color: var(--lime);
+        color: var(--dark-bg);
+        border: none;
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 15px rgba(200, 242, 48, 0.4);
+    }
+    .btn-success:hover {
+        color: white;
+        background-color: var(--lime);
+        transform: translateY(-3px);
+    }
+    /*Apariencia del boton "VOLVER"*/
+    .btn-secondary {
+        background-color: var(--purple-dark);
+        color: white;
+        border: none;
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 40px rgba(108, 12, 242, 0.35);
+    }
+
+    .btn-secondary:hover {
+        color: var(--dark-bg);
+        background-color: var(--purple-dark);
+        box-shadow: 0 8px 40px rgba(108, 12, 242, 0.35); 
+        transform: translateY(-3px);
+        }
+    /*Pie de pagina*/
+
+    footer{
+        text-align: center;
+        color: var(--purple-light) !important;
+        background-color: var(--dark-bg);
+        border-top: 1px solid #A0A0A0
+    }
+
+        footer span {
+            color: var(--purple-light);
+        }
+
+    h2 {
+        margin: 10px;
+        color: var(--purple-light)
+    }
+    /*Clase que le da estilo a la tabla*/
+    .table-card {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.20);
+        background: rgba(255,255,255,0.01);
+        border: 1px solid rgba(255,255,255,0.03);
+    }
+
+        .table-card table {
+            width: 100%;
+            margin: 0;
+            border-collapse: separate !important;
+            border-spacing: 0;
+        }
+
+            .table-card table th,
+            .table-card table td {
+                border: none !important;
+                padding: 0.75rem 1rem;
+            }
+
+    table.table thead th {
+        text-align: center;
+        vertical-align: middle;
+        background-color: var(--dark-bg);
+        color: var(--purple-dark)
+    }
+    /* Estilo del header*/
+    .site-header{
+        background-color: var(--dark-bg);
+    }
